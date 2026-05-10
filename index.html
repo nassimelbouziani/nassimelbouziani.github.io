@@ -229,15 +229,14 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
                 </div>
             </div>
 
-            <!-- Bloc Télécoms -->
+            <!-- Bloc Virtualisation -->
             <div class="col d-flex align-items-start">
                 <div class="icon-square d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3" style="color: #4f46e5;">
                     <i class="fas fa-broadcast-tower fa-2x"></i>
                 </div>
                 <div>
                     <h5 class="fw-bold mb-0 fs-5">Virtualisation</h5>
-                    <p class="text-muted small">Linux, Windows Server
-(Active Directory), PowerShell, configuration de serveurs.</p>
+                    <p class="text-muted small">VirtualBox, VMware ESXi, Docker.</p>
                 </div>
             </div>
 
@@ -248,7 +247,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
                 </div>
                 <div>
                     <h5 class="fw-bold mb-0 fs-5">Informatique</h5>
-                    <p class="text-muted small">Python, PostgreSQL, HTML, CSS, GitHub.</p>
+                    <p class="text-muted small">Python, Flask, PostgreSQL, HTML, CSS, GitHub, VSCode, Pycharm.</p>
                 </div>
             </div>
 
@@ -423,65 +422,56 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
 
   /* ── Corps accordéon ── */
   .ac-body {
-    display: none;
-    border: 1px solid #e4e4e4;
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    background: #fff;
-    overflow: hidden;
-  }
-  .ac-body.open { display: flex; flex-direction: column; }
+  display: none;
+  border: 1px solid #e4e4e4;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background: #fff;
+  overflow: visible;
+}
+.ac-body.open { display: flex; flex-direction: column; }
 
-  /* Illustration + texte côte à côte */
-  .ac-inner {
-    display: flex;
-    gap: 0;
-  }
+.ac-inner {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
 
-  .ac-illus {
-    flex: 0 0 260px;
-    background: #1a1a2e;
-    display: flex; align-items: center; justify-content: center;
-    padding: 18px;
-    min-height: 160px;
-  }
-  .ac-illus svg {
-    width: 100%; max-width: 220px;
-    opacity: .92;
-  }
+.ac-illus {
+  flex: 0 0 340px;
+  overflow: visible;
+}
 
-  .ac-text {
-    flex: 1;
-    padding: 18px 20px;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #444;
-  }
-  .ac-text p { margin: 0 0 8px; }
-  .ac-text p:last-child { margin-bottom: 0; }
+.ac-text {
+  flex: 1;
+  padding: 18px 20px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #444;
+}
+.ac-text p { margin: 0 0 8px; }
+.ac-text p:last-child { margin-bottom: 0; }
 
-  .ac-tag {
-    display: inline-block;
-    font-size: 11px; font-weight: 600;
-    padding: 2px 9px; border-radius: 20px;
-    background: #f0f0f0; color: #555;
-    margin-bottom: 10px;
-  }
+.ac-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  padding: 2px 9px; border-radius: 20px;
+  background: #f0f0f0; color: #555;
+  margin-bottom: 10px;
+}
 
-  /* Section vide (S2) */
-  .ac-coming {
-    padding: 18px 20px;
-    font-size: 13px; color: #aaa;
-    font-style: italic;
-    text-align: center;
-  }
+.ac-coming {
+  padding: 18px 20px;
+  font-size: 13px; color: #aaa;
+  font-style: italic;
+  text-align: center;
+}
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .ac-inner { flex-direction: column; }
-    .ac-illus { flex: none; min-height: 120px; }
-    .comp-badge { display: none; }
-  }
+@media (max-width: 768px) {
+  .ac-inner { flex-direction: column; }
+  .ac-illus { flex: none; }
+  .comp-badge { display: none; }
+}
 </style>
 
 
@@ -518,37 +508,14 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <div class="ac-inner">
             <div class="ac-illus">
               <!-- Schéma RLC simplifié -->
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <text x="10" y="14" fill="#aaa" font-size="9" font-family="monospace">Schéma équivalent câble 20m</text>
-                <!-- fil haut -->
-                <line x1="20" y1="40" x2="55" y2="40" stroke="#4fc3f7" stroke-width="2"/>
-                <!-- R1 -->
-                <rect x="55" y="33" width="30" height="14" fill="none" stroke="#ffb74d" stroke-width="2"/>
-                <text x="60" y="44" fill="#ffb74d" font-size="8" font-family="monospace">R 1.22Ω</text>
-                <line x1="85" y1="40" x2="110" y2="40" stroke="#4fc3f7" stroke-width="2"/>
-                <!-- L1 -->
-                <path d="M110,40 q5,-8 10,0 q5,-8 10,0 q5,-8 10,0" fill="none" stroke="#ef9a9a" stroke-width="2"/>
-                <text x="112" y="58" fill="#ef9a9a" font-size="8" font-family="monospace">L 5.94µH</text>
-                <line x1="140" y1="40" x2="170" y2="40" stroke="#4fc3f7" stroke-width="2"/>
-                <!-- fil droite + C1 -->
-                <line x1="170" y1="40" x2="170" y2="60" stroke="#4fc3f7" stroke-width="2"/>
-                <line x1="158" y1="60" x2="182" y2="60" stroke="#80cbc4" stroke-width="2.5"/>
-                <line x1="158" y1="66" x2="182" y2="66" stroke="#80cbc4" stroke-width="2.5"/>
-                <text x="155" y="80" fill="#80cbc4" font-size="8" font-family="monospace">C 1.056nF</text>
-                <line x1="170" y1="66" x2="170" y2="90" stroke="#4fc3f7" stroke-width="2"/>
-                <!-- fil bas -->
-                <line x1="20" y1="90" x2="170" y2="90" stroke="#4fc3f7" stroke-width="2"/>
-                <!-- V1 source -->
-                <circle cx="20" cy="65" r="14" fill="none" stroke="#a5d6a7" stroke-width="2"/>
-                <text x="14" y="69" fill="#a5d6a7" font-size="10" font-family="monospace">V1</text>
-                <line x1="20" y1="40" x2="20" y2="51" stroke="#4fc3f7" stroke-width="2"/>
-                <line x1="20" y1="79" x2="20" y2="90" stroke="#4fc3f7" stroke-width="2"/>
-              </svg>
+              <img src="assets/img/circuit.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">SAE 1.03 — LTspice</span>
-              <p>Lors de la SAE 1.03, j'ai modélisé un câble coaxial de 20 mètres sous forme de circuit électrique équivalent RLC, avec une résistance R = 1,22 Ω, une inductance L = 5,94 µH et une capacité C = 1,056 nF, calculées à partir de la fiche technique du constructeur.</p>
-              <p>J'ai ensuite simulé ce circuit sous LTspice pour obtenir la réponse en fréquence (diagramme de Bode) et déterminer la fréquence de coupure. Cet exercice m'a permis de maîtriser concrètement les lois d'Ohm et les relations courant-tension sur des composants réactifs, dans un contexte direct de réseaux et télécommunications.</p>
+              <p>Lors du bilan de la SAE 1.03, j'ai modélisé deux câbles coaxiaux de 5 et 20 mètres sous forme de circuit électrique équivalent RLC, dont les valeurs des différents composants ont été calculées à partir de la fiche technique du constructeur.
+              J'ai ensuite simulé ce circuit grâce au logiciel LTspice pour obtenir la réponse en fréquence (diagramme de Bode) et ainsi déterminer la fréquence de coupure.</p>
+              <p>Enfin, j'ai déterminé le temps de propagation de chacun des câbles en appliquant les relations mathématiques étudiées en cours.
+              Cet exercice m'a permis de maîtriser concrètement les lois fondamentales en électricité ainsi que les principes de base d'un support de transmission pour réseau local.</p>
             </div>
           </div>
         </div>
@@ -567,24 +534,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <div class="ac-inner">
             <div class="ac-illus">
               <!-- Code binaire / Python -->
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#1e1e2e" rx="6"/>
-                <text x="10" y="18" fill="#6272a4" font-size="8" font-family="monospace">TP systeme mux.py</text>
-                <text x="10" y="34" fill="#ff79c6" font-size="9" font-family="monospace">def</text>
-                <text x="30" y="34" fill="#50fa7b" font-size="9" font-family="monospace"> adder_n_bits</text>
-                <text x="113" y="34" fill="#f8f8f2" font-size="9" font-family="monospace">(n1, n2):</text>
-                <text x="10" y="48" fill="#f8f8f2" font-size="9" font-family="monospace">  solution = []</text>
-                <text x="10" y="62" fill="#bd93f9" font-size="9" font-family="monospace">  for</text>
-                <text x="32" y="62" fill="#f8f8f2" font-size="9" font-family="monospace"> e in n1:</text>
-                <text x="10" y="76" fill="#f8f8f2" font-size="9" font-family="monospace">    solution.append(</text>
-                <text x="10" y="90" fill="#f8f8f2" font-size="9" font-family="monospace">      chr(e) or chr(e))</text>
-                <text x="10" y="106" fill="#6272a4" font-size="8" font-family="monospace">num1=[0,0,1,0] num2=[0,0,0,1]</text>
-              </svg>
+              <img src="assets/img/bin.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">TP Systèmes numériques — Python</span>
-              <p>En TP, j'ai implémenté en Python une fonction d'addition bit à bit sur des nombres binaires représentés sous forme de listes, simulant le fonctionnement d'une unité arithmétique et logique (UAL).</p>
-              <p>Ce travail m'a permis de comprendre concrètement le codage binaire de l'information, le fonctionnement des systèmes numériques au niveau le plus bas, et les principes qui sous-tendent les protocoles de communication sur Internet.</p>
+              <span class="ac-tag">TP R1.06 — Architecture des systèmes numériques</span>
+              <p>Au cours des TP de R1.06, j'ai conçu en plusieurs programmes Python simulant la conversion binaire, les opérations bit à bit, le chiffrement XOR, ainsi que la logique combinatoire.</p>
+              <p>Ce travail m'a permis de comprendre concrètement le codage binaire de l'information, le fonctionnement de base des systèmes numériques et informatiques, et les principes souvent ignorés des protocoles de communication sur Internet.</p>
             </div>
           </div>
         </div>
@@ -601,48 +556,15 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         </div>
         <div class="ac-body">
           <div class="ac-inner">
-            <div class="ac-illus">
-              <!-- Topologie réseau simplifiée -->
-              <svg viewBox="0 0 220 130" xmlns="http://www.w3.org/2000/svg">
-                <!-- VLAN 10 ADMIN -->
-                <circle cx="45" cy="35" r="28" fill="#f39c12" fill-opacity=".18" stroke="#f39c12" stroke-width="1.5"/>
-                <text x="27" y="20" fill="#f39c12" font-size="7" font-family="monospace">VLAN 10</text>
-                <text x="20" y="30" fill="#f39c12" font-size="6" font-family="monospace">192.168.10.x</text>
-                <rect x="28" y="35" width="10" height="8" fill="#f39c12" rx="1"/>
-                <rect x="42" y="35" width="10" height="8" fill="#f39c12" rx="1"/>
-                <!-- VLAN 20 PERSONNEL -->
-                <circle cx="175" cy="35" r="28" fill="#2980b9" fill-opacity=".18" stroke="#2980b9" stroke-width="1.5"/>
-                <text x="155" y="20" fill="#2980b9" font-size="7" font-family="monospace">VLAN 20</text>
-                <text x="150" y="30" fill="#2980b9" font-size="6" font-family="monospace">192.168.20.x</text>
-                <rect x="158" y="35" width="10" height="8" fill="#2980b9" rx="1"/>
-                <rect x="172" y="35" width="10" height="8" fill="#2980b9" rx="1"/>
-                <!-- Switch -->
-                <rect x="90" y="58" width="40" height="16" fill="#555" rx="3"/>
-                <text x="97" y="70" fill="#fff" font-size="8" font-family="monospace">SW1</text>
-                <!-- Routeur -->
-                <circle cx="110" cy="105" r="12" fill="#555"/>
-                <text x="100" y="109" fill="#fff" font-size="8" font-family="monospace">R1</text>
-                <!-- Lignes -->
-                <line x1="55" y1="45" x2="90" y2="65" stroke="#aaa" stroke-width="1.5"/>
-                <line x1="165" y1="45" x2="130" y2="65" stroke="#aaa" stroke-width="1.5"/>
-                <line x1="110" y1="74" x2="110" y2="93" stroke="#aaa" stroke-width="1.5" stroke-dasharray="3,2"/>
-                <text x="115" y="86" fill="#aaa" font-size="7" font-family="monospace">Trunk</text>
-                <!-- VLAN 30 -->
-                <circle cx="45" cy="105" r="20" fill="#27ae60" fill-opacity=".18" stroke="#27ae60" stroke-width="1.5"/>
-                <text x="27" y="100" fill="#27ae60" font-size="6.5" font-family="monospace">VLAN 30</text>
-                <rect x="37" y="103" width="9" height="7" fill="#27ae60" rx="1"/>
-                <line x1="65" y1="105" x2="90" y2="70" stroke="#aaa" stroke-width="1.5"/>
-                <!-- VLAN 40 -->
-                <circle cx="175" cy="105" r="20" fill="#c0392b" fill-opacity=".18" stroke="#c0392b" stroke-width="1.5"/>
-                <text x="157" y="100" fill="#c0392b" font-size="6.5" font-family="monospace">VLAN 40</text>
-                <rect x="167" y="103" width="9" height="7" fill="#c0392b" rx="1"/>
-                <line x1="155" y1="105" x2="130" y2="70" stroke="#aaa" stroke-width="1.5"/>
-              </svg>
-            </div>
+          <div class="ac-illus" style="flex:0 0 400px; background:#f7f7f7; align-self:stretch; display:flex; align-items:center;">
+            <img src="assets/img/PacketTracer.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
+          </div>
             <div class="ac-text">
-              <span class="ac-tag">SAE 1.2 — Cisco Packet Tracer</span>
-              <p>Dans le cadre de la SAE 1.2, j'ai conçu et déployé une infrastructure réseau locale complète sous Cisco Packet Tracer : 4 VLANs distincts (ADMIN, PERSONNEL, PRODUCTION, VIDEO), un switch Cisco 2960 configuré avec trunking 802.1q, et un routeur assurant le routage inter-VLAN.</p>
-              <p>J'ai mis en place le plan d'adressage IP (192.168.10/20/30/40.x), configuré les sous-interfaces du routeur en encapsulation dot1Q, activé un serveur DNS et un serveur Web dans le VLAN ADMIN, et vérifié la connectivité entre tous les VLANs via des pings et des requêtes HTTP/DNS.</p>
+              <span class="ac-tag">SAE 1.02 — Initiation aux réseaux informatiques</span>
+              <p>Dans le cadre de la SAE 1.02 en groupe, nous avons conçu et déployé une infrastructure réseau locale complète pour une petite structure : 8 machines virtuelles, 4 VLANs distincts (ADMIN, PERSONNEL, PRODUCTION, VIDEO) configurés via SSH sur un switch Cisco 2960, et un routeur assurant le routage inter-VLAN, le service DHCP ainsi que l'accès à Internet.</p>
+              <p>Ce projet s'est réalisé en plusieurs séances à la fin desquelles nous devions rendre des livrables.</p>
+              <p>La première séance consistait à répartir les rôles et créer un premier schéma technique. Nous avons ensuite simulé notre maquette sur Cisco Packet Tracer et effectué plusieurs tests de validation. Enfin, nous avons conçu notre réseau en réél durant une demi-journée.</p>
+              <p>Ce projet a été très enrichissant pour moi car il m'a offert une première immersion dans le métier de néticien à travers le respect d'un cahier des charges, la gestion des délais, le travail en équipe ainsi que la capacité d'adaptation face aux difficultés rencontrées.</p>
             </div>
           </div>
         </div>
@@ -660,22 +582,13 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <text x="10" y="16" fill="#58a6ff" font-size="8" font-family="monospace">root@rt-mv:~# apt install apache2</text>
-                <text x="10" y="30" fill="#3fb950" font-size="8" font-family="monospace">Lecture des listes... Fait</text>
-                <text x="10" y="44" fill="#3fb950" font-size="8" font-family="monospace">Construction de l'arbre... Fait</text>
-                <text x="10" y="58" fill="#e3b341" font-size="8" font-family="monospace">Les NOUVEAUX paquets suivants</text>
-                <text x="10" y="72" fill="#e3b341" font-size="8" font-family="monospace">seront installés : apache2</text>
-                <text x="10" y="86" fill="#f8f8f2" font-size="8" font-family="monospace">0 mis à jour, 9 nouvellement</text>
-                <text x="10" y="100" fill="#58a6ff" font-size="8" font-family="monospace">Souhaitez-vous continuer ? [O/n]</text>
-                <text x="10" y="114" fill="#3fb950" font-size="8" font-family="monospace">o ▌</text>
-              </svg>
+              <img src="assets/img/bash.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">TP Linux Ubuntu 22.04 — R108</span>
-              <p>En TP sous Ubuntu 22.04 Server, j'ai administré un système Linux en ligne de commande : installation et configuration d'un serveur Apache2 via <code>apt</code>, gestion des droits fichiers avec <code>chmod</code>, navigation dans l'arborescence système, création de scripts Bash avec variables et redirections.</p>
-              <p>Le CTP R108 m'a également permis de maîtriser des commandes avancées : <code>find</code>, <code>sort</code>, <code>cut</code>, <code>wc</code>, gestion des processus avec <code>ps</code> et <code>kill</code>, et rédaction d'un script <code>process.sh</code> exécutable. Ces compétences sont directement applicables à l'administration de serveurs réseau.</p>
+              <span class="ac-tag">R1.08 — TP Bases des systèmes d'exploitation</span>
+              <p>Au début de l'année, j'ai appris les bases du fonctionnement des systèmes Linux en lignes de commande : gestion des droits fichiers avec <code>chmod</code>, navigation dans l'arborescence système, création de petits scripts Bash avec variables et redirections.</p>
+              <p>Ce module m'a également permis de maîtriser des commandes avancées : <code>find</code>, <code>sort</code>, <code>cut</code>, <code>wc</code>, gestion des processus avec <code>ps</code> et <code>kill</code>.
+              Ces cours furent très instructifs pour moi car ils m'ont permis de découvrir l'environnement Linux ainsi que l'utilisation du terminal, outil du quotidien d'un administrateur.</p>
             </div>
           </div>
         </div>
@@ -693,22 +606,13 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <text x="10" y="16" fill="#58a6ff" font-size="8" font-family="monospace">root@H1:~# ping 192.168.0.20</text>
-                <text x="10" y="30" fill="#3fb950" font-size="7.5" font-family="monospace">64 bytes from 192.168.0.20: ttl=64</text>
-                <text x="10" y="44" fill="#3fb950" font-size="7.5" font-family="monospace">64 bytes from 192.168.0.20: ttl=64</text>
-                <text x="10" y="58" fill="#f85149" font-size="7.5" font-family="monospace">From 192.168.0.20 Dest Unreachable</text>
-                <text x="10" y="72" fill="#f85149" font-size="7.5" font-family="monospace">100% packet loss — 3 errors</text>
-                <text x="10" y="88" fill="#58a6ff" font-size="8" font-family="monospace">root@H1:~# ip route</text>
-                <text x="10" y="102" fill="#e3b341" font-size="7.5" font-family="monospace">default via 192.168.0.1 dev eth0</text>
-                <text x="10" y="116" fill="#e3b341" font-size="7.5" font-family="monospace">192.168.0.0/24 dev eth0</text>
-              </svg>
+              <img src="assets/img/show.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">TP Diagnostic réseau — Linux</span>
-              <p>Dans un TP comparatif entre deux machines virtuelles Ubuntu, j'ai utilisé les commandes <code>ping</code>, <code>ip route</code> et <code>ip a</code> pour diagnostiquer des problèmes de connectivité : pertes de paquets (100%), routes manquantes dans les tables de routage, et interfaces mal configurées.</p>
-              <p>Cette démarche méthodique m'a appris à isoler l'origine d'une panne réseau couche par couche, à interpréter les messages d'erreur ICMP et à rédiger un rapport structuré listant les anomalies détectées et les corrections à apporter à l'administrateur.</p>
+              <span class="ac-tag">SAE1.02 — Problèmes rencontrés et résolution</span>
+              <p>Au cours de la SAE 1.02 présentée précédemment, nous avions parfois rencontré des dysfonctionnement du réseau, notamment lors des tests de connectivité.</p>
+              <p>Après signalement du problème et concertation au sein de l'équipe, nous avons opté pour une démarche méthodique. Nous avons d'abord entré les commandes de vérification dans le CLI du switch et du routeur afin de contrôler l'état des interfaces, les VLANs puis nous avons contrôlé le bon adressage sur les machines.</p>
+              <p>En suivant ces étapes, nous avons détecté la source du problème : une interface en état "down" ainsi qu'un masque de sous-réseau inadapté sur une des machines.</p>
             </div>
           </div>
         </div>
@@ -726,26 +630,14 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#1a1a2e" rx="6"/>
-                <!-- fenêtre VirtualBox -->
-                <rect x="15" y="10" width="190" height="100" fill="#2d2d44" rx="4" stroke="#555" stroke-width="1"/>
-                <rect x="15" y="10" width="190" height="18" fill="#3a3a55" rx="4"/>
-                <text x="22" y="23" fill="#ccc" font-size="8" font-family="monospace">Ubuntu1 — VirtualBox</text>
-                <circle cx="190" cy="19" r="4" fill="#f85149"/>
-                <!-- Général -->
-                <text x="22" y="42" fill="#58a6ff" font-size="8" font-family="monospace">Général</text>
-                <text x="22" y="55" fill="#aaa" font-size="7.5" font-family="monospace">VM Name:  Ubuntu1</text>
-                <text x="22" y="67" fill="#aaa" font-size="7.5" font-family="monospace">OS:       Linux (Ubuntu 64-bit)</text>
-                <text x="22" y="79" fill="#58a6ff" font-size="8" font-family="monospace">Système</text>
-                <text x="22" y="91" fill="#aaa" font-size="7.5" font-family="monospace">RAM:      10 000 MB</text>
-                <text x="22" y="103" fill="#aaa" font-size="7.5" font-family="monospace">Disque:   Ubuntu1.vdi  (2,1 Mo)</text>
-              </svg>
+              <img src="assets/img/winserv.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">TP VirtualBox — Installation Ubuntu 22.04</span>
-              <p>J'ai réalisé l'installation complète d'une machine virtuelle Ubuntu 22.04 (64 bits) sous VirtualBox, en configurant les paramètres virtuels : allocation RAM (10 000 Mo), contrôleur SATA, disque virtuel au format <code>.vdi</code>.</p>
-              <p>J'ai ensuite analysé les fichiers générés à l'aide de la commande <code>file</code> : le fichier <code>.vbox</code> est un XML ASCII de configuration, le <code>.vdi</code> est une image binaire du disque virtuel. J'ai expliqué pourquoi le disque occupe seulement 2,1 Mo réels malgré une taille allouée bien supérieure (disque dynamique). Cette procédure documentée constitue un compte-rendu complet remis à l'enseignant.</p>
+              <span class="ac-tag">R2.02 — Administration système Windows</span>
+              <p>Dans ce TP, j’ai installé et configuré un poste client Windows afin de l’intégrer à un domaine Active Directory. J’ai mis en place la configuration réseau, relié le client au serveur, testé l’attribution automatique d’adresse IP avec le DHCP et vérifié l’accès aux sessions utilisateurs du domaine.</p>
+              <p>J’ai également découvert la gestion de profils, de quotas utilisateurs ainsi que les permissions de partage réseau. 
+              Enfin, j'ai implémenté des GPO diverses et variées:  Stratégies de sécurité (format mot de passe), scripts d'ouverture de session et déploiement de logiciel.</p>
+              <p>Cette ressource m’a permis de mieux comprendre le fonctionnement d’une infrastructure informatique en entreprise et de développer des compétences en administration système et ma capacité à gérer le parc informatique d'une organisation.</p>
             </div>
           </div>
         </div>
@@ -783,30 +675,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <div class="ac-inner">
             <div class="ac-illus">
               <!-- Diagramme de Bode schématique -->
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0a0a1a" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">Réponse fréquentielle — LTspice</text>
-                <!-- axes -->
-                <line x1="20" y1="100" x2="210" y2="100" stroke="#555" stroke-width="1"/>
-                <line x1="20" y1="20" x2="20" y2="100" stroke="#555" stroke-width="1"/>
-                <!-- labels -->
-                <text x="22" y="108" fill="#666" font-size="6" font-family="monospace">100Hz</text>
-                <text x="85" y="108" fill="#666" font-size="6" font-family="monospace">10kHz</text>
-                <text x="150" y="108" fill="#666" font-size="6" font-family="monospace">1MHz</text>
-                <text x="8" y="30" fill="#666" font-size="6" font-family="monospace">27dB</text>
-                <text x="8" y="65" fill="#666" font-size="6" font-family="monospace">0dB</text>
-                <text x="5" y="100" fill="#666" font-size="6" font-family="monospace">-72dB</text>
-                <!-- courbe passe-bas avec pic de résonance -->
-                <polyline points="20,63 60,62 90,61 115,55 135,35 150,90 165,98 185,100 210,101"
-                  fill="none" stroke="#00e676" stroke-width="2"/>
-                <text x="130" y="32" fill="#00e676" font-size="7" font-family="monospace">fc≈3.14MHz</text>
-                <line x1="148" y1="35" x2="148" y2="100" stroke="#00e676" stroke-width="1" stroke-dasharray="3,2"/>
-              </svg>
+              <img src="assets/img/bode.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">SAE 1.03 — LTspice / Simulink</span>
-              <p>Au cours de la SAE 1.03, j'ai réalisé des simulations fréquentielles sous LTspice (analyse AC) sur des modèles de câbles Ethernet de 5, 10 et 100 mètres. J'ai tracé les diagrammes de Bode, mesuré les fréquences de coupure et analysé l'atténuation en dB à différentes fréquences.</p>
-              <p>Sous Simulink (Matlab), j'ai également mesuré le retard de propagation d'une impulsion dans un câble Ethernet cat6 Draka, en utilisant les curseurs de la fenêtre Scope pour calculer la vitesse de propagation et le NVP. Ces mesures m'ont appris à lire et commenter des chronogrammes et des courbes fréquentielles de façon rigoureuse.</p>
+              <span class="ac-tag">SAE 1.03 — Découverte d'un système de trasmission</span>
+              <p>Au cours de la SAE 1.03, j'ai réalisé des simulations fréquentielles sous LTspice sur des modèles équivalents de câbles Ethernet de longueurs différentes. J'ai tracé les diagrammes de Bode, mesuré les fréquences de coupure et analysé l'atténuation en dB à différentes fréquences.</p>
+              <p>Sous MATLAB Simulink, j'ai également mesuré le retard de propagation d'une impulsion dans un câble Ethernet cat6 Draka, en utilisant les curseurs de la fenêtre Scope pour calculer la vitesse de propagation et le NVP. Ces mesures m'ont appris à lire et commenter des chronogrammes et des courbes fréquentielles de façon rigoureuse.</p>
             </div>
           </div>
         </div>
@@ -824,30 +698,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0a0a1a" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">Câble coaxial — fiche technique</text>
-                <!-- tableau paramètres -->
-                <rect x="8" y="20" width="204" height="90" fill="#111" rx="3" stroke="#333" stroke-width="1"/>
-                <text x="14" y="35" fill="#58a6ff" font-size="8" font-family="monospace">Paramètre</text>
-                <text x="120" y="35" fill="#58a6ff" font-size="8" font-family="monospace">Valeur</text>
-                <line x1="8" y1="38" x2="212" y2="38" stroke="#333" stroke-width="1"/>
-                <text x="14" y="51" fill="#aaa" font-size="8" font-family="monospace">DC resistance</text>
-                <text x="120" y="51" fill="#3fb950" font-size="8" font-family="monospace">61 Ω/km</text>
-                <text x="14" y="64" fill="#aaa" font-size="8" font-family="monospace">Mutual capacitance</text>
-                <text x="120" y="64" fill="#3fb950" font-size="8" font-family="monospace">52.8 pF/m</text>
-                <text x="14" y="77" fill="#aaa" font-size="8" font-family="monospace">Char. impedance</text>
-                <text x="120" y="77" fill="#3fb950" font-size="8" font-family="monospace">75 Ω ± 0.75</text>
-                <text x="14" y="90" fill="#aaa" font-size="8" font-family="monospace">Velocity ratio</text>
-                <text x="120" y="90" fill="#3fb950" font-size="8" font-family="monospace">78%</text>
-                <text x="14" y="103" fill="#aaa" font-size="8" font-family="monospace">Screening factor</text>
-                <text x="120" y="103" fill="#3fb950" font-size="8" font-family="monospace">&gt; 100 dB</text>
-              </svg>
+              <img src="assets/img/caract.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">SAE 1.03 — Bilan client câble coaxial</span>
               <p>Lors du bilan de la SAE 1.03 (6ème séance), à partir d'une fiche technique de câble coaxial fournie par un client (impédance caractéristique 75 Ω, NVP 78%, capacité 52,8 pF/m), j'ai calculé les paramètres primaires R, L, C pour deux longueurs (5 m et 20 m), établi les schémas électriques équivalents et simulé la réponse en fréquence.</p>
-              <p>Les fréquences de coupure obtenues (12,5 MHz pour 5 m et 3,14 MHz pour 20 m) et les temps de propagation calculés ont permis de formuler une recommandation claire au client : privilégier une longueur de 5 m pour un débit optimal.</p>
+              <p>Les fréquences de coupure obtenues et les temps de propagation calculés ont permis de formuler une recommandation claire au client : privilégier une longueur de 5 m pour un débit optimal.</p>
             </div>
           </div>
         </div>
@@ -865,29 +721,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0a1628" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">TP R105 — Ligne de transmission</text>
-                <!-- câble RJ45 schématique -->
-                <rect x="15" y="30" width="80" height="20" fill="#1a3a5c" rx="3" stroke="#4fc3f7" stroke-width="1.5"/>
-                <text x="22" y="44" fill="#4fc3f7" font-size="9" font-family="monospace">Câble cat6 UTP</text>
-                <!-- connecteur RJ45 -->
-                <rect x="95" y="34" width="16" height="12" fill="#555" rx="2"/>
-                <text x="96" y="44" fill="#aaa" font-size="6.5" font-family="monospace">RJ45</text>
-                <!-- appareil mesure -->
-                <rect x="130" y="25" width="70" height="35" fill="#1a3a1a" rx="4" stroke="#3fb950" stroke-width="1.5"/>
-                <text x="138" y="38" fill="#3fb950" font-size="8" font-family="monospace">Pont RLC</text>
-                <text x="135" y="50" fill="#3fb950" font-size="7.5" font-family="monospace">BK878B</text>
-                <!-- fil de mesure -->
-                <line x1="111" y1="40" x2="130" y2="40" stroke="#aaa" stroke-width="1.5"/>
-                <!-- résultats -->
-                <text x="15" y="80" fill="#aaa" font-size="7.5" font-family="monospace">r = 176 Ω/km</text>
-                <text x="15" y="92" fill="#aaa" font-size="7.5" font-family="monospace">l = 500 nH/m</text>
-                <text x="15" y="104" fill="#aaa" font-size="7.5" font-family="monospace">c = 50 pF/m</text>
-                <text x="115" y="80" fill="#e3b341" font-size="7.5" font-family="monospace">NVP ≈ 68%</text>
-                <text x="115" y="92" fill="#e3b341" font-size="7.5" font-family="monospace">Zc ≈ 100 Ω</text>
-                <text x="115" y="104" fill="#e3b341" font-size="7.5" font-family="monospace">Câble : droit</text>
-              </svg>
+              <img src="assets/img/r105.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">TP R105 — Mesures sur câble Ethernet</span>
@@ -903,30 +737,20 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-header" onclick="toggleAC(this)">
           <div class="ac-header-left">
             <span class="ac-code" style="background:var(--con);">AC 12.04</span>
-            <span class="ac-label">Connecter les systèmes de ToIP</span>
+            <span class="ac-label">Connecter les systèmes de ToIP (téléphonie IP)</span>
           </div>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">Asterisk — pjsip.conf</text>
-                <text x="8" y="28" fill="#6272a4" font-size="8" font-family="monospace">;=====TRANSPORT</text>
-                <text x="8" y="40" fill="#f8f8f2" font-size="8" font-family="monospace">[transport-udp]</text>
-                <text x="8" y="52" fill="#50fa7b" font-size="8" font-family="monospace">bind=0.0.0.0:5060</text>
-                <text x="8" y="64" fill="#f8f8f2" font-size="8" font-family="monospace">[Fanvil10]</text>
-                <text x="8" y="76" fill="#8be9fd" font-size="8" font-family="monospace">type=endpoint</text>
-                <text x="8" y="88" fill="#8be9fd" font-size="8" font-family="monospace">allow=ulaw</text>
-                <text x="8" y="100" fill="#8be9fd" font-size="8" font-family="monospace">password=1234</text>
-                <text x="8" y="112" fill="#ffb86c" font-size="8" font-family="monospace">→ SIP REGISTER ✓ 200 OK</text>
-              </svg>
+              <img src="assets/img/asterisk.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">TP R204 — Asterisk / VoIP</span>
-              <p>En TP R204, j'ai déployé un serveur IPBX Asterisk sur Alpine Linux (VirtualBox). J'ai configuré le protocole PJSIP dans <code>pjsip.conf</code> pour enregistrer deux terminaux : un téléphone Fanvil (SIP 5060, codec ulaw) et un téléphone Cisco, puis créé les extensions dans <code>extensions.conf</code> pour établir des appels entre eux.</p>
-              <p>J'ai également installé un serveur TFTP pour le provisionnement automatique du Cisco (fichier <code>SEP[MAC].cnf.xml</code>), configuré la messagerie vocale et un SVI (IVR) avec enregistrement de messages d'accueil. Les échanges SIP ont été vérifiés via Wireshark (filtre SIP, diagramme REGISTER → 401 → REGISTER → 200 OK).</p>
+              <span class="ac-tag">TP R2.04 — Asterisk / VoIP</span>
+              <p>En TP R2.04, j'ai déployé un serveur Asterisk sur une machine virtuelle Alpine Linux. J'ai configuré le protocole SIP dans <code>pjsip.conf</code> pour enregistrer deux terminaux : un téléphone Fanvil et un téléphone Cisco, puis créé les extensions dans <code>extensions.conf</code> pour établir des appels entre eux.</p>
+              <p>J'ai également installé un serveur TFTP pour le provisionnement automatique du Cisco, configuré la messagerie vocale et un SVI (IVR) avec enregistrement de messages d'accueil et redirection via menu à touches interactif. Les échanges SIP ont été vérifiés via Wireshark.
+                Ce module fut très enrichissant pour moi car il m'a permis de découvrir la téléphonie d'entreprise, une solution moderne répondant aux besoins de l'entreprise.</p>
             </div>
           </div>
         </div>
@@ -944,31 +768,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0a1628" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">Bilan SAE — Rapport client</text>
-                <!-- document -->
-                <rect x="15" y="22" width="85" height="90" fill="#12233a" rx="3" stroke="#2980b9" stroke-width="1.5"/>
-                <text x="20" y="36" fill="#4fc3f7" font-size="7.5" font-family="monospace">Conclusion :</text>
-                <text x="20" y="48" fill="#aaa" font-size="6.5" font-family="monospace">Le client doit</text>
-                <text x="20" y="58" fill="#aaa" font-size="6.5" font-family="monospace">privilégier 5m.</text>
-                <text x="20" y="70" fill="#aaa" font-size="6.5" font-family="monospace">fc(5m)=12.5MHz</text>
-                <text x="20" y="80" fill="#aaa" font-size="6.5" font-family="monospace">fc(20m)=3.14MHz</text>
-                <text x="20" y="92" fill="#3fb950" font-size="6.5" font-family="monospace">T(5m)=21.3ns</text>
-                <text x="20" y="104" fill="#3fb950" font-size="6.5" font-family="monospace">T(20m)=85.4ns</text>
-                <!-- flèche client -->
-                <text x="115" y="55" fill="#2980b9" font-size="22">→</text>
-                <!-- icône client -->
-                <circle cx="180" cy="55" r="14" fill="#12233a" stroke="#2980b9" stroke-width="1.5"/>
-                <circle cx="180" cy="50" r="5" fill="#4fc3f7"/>
-                <path d="M170,68 q10,-8 20,0" fill="none" stroke="#4fc3f7" stroke-width="1.5"/>
-                <text x="162" y="82" fill="#aaa" font-size="7" font-family="monospace">Client</text>
-              </svg>
+              <img src="assets/img/conc.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">SAE 1.03 — 6ème séance, bilan client</span>
-              <p>Lors du bilan de la SAE 1.03 (avec Ayman Ettarni), nous avons reçu les caractéristiques d'un câble coaxial d'un client souhaitant savoir s'il pouvait l'utiliser sur 5 m ou 20 m. En 2 heures, nous avons produit un compte-rendu complet comprenant les calculs, les schémas équivalents LTspice, les réponses en fréquence simulées et les délais de propagation.</p>
-              <p>Le document se conclut par une recommandation claire et argumentée à destination du client : privilégier 5 m (fc = 12,5 MHz, T = 21 ns) plutôt que 20 m (fc = 3,14 MHz, T = 85 ns). Cette expérience m'a appris à adapter mon discours technique à un interlocuteur non spécialiste et à structurer une réponse professionnelle dans un délai contraint.</p>
+              <p>Lors du bilan de la SAE 1.03, nous avons reçu les caractéristiques d'un câble coaxial d'un client souhaitant savoir s'il pouvait l'utiliser sur 5 m ou 20 m. En 2 heures, nous avons produit un compte-rendu complet comprenant les calculs, les schémas équivalents LTspice, les réponses en fréquence simulées et les délais de propagation.</p>
+              <p>Le document se conclut par une recommandation claire et argumentée à destination du client : privilégier 5 m plutôt que 20 m. Cette expérience m'a appris à adapter mon discours technique à un interlocuteur non spécialiste et à structurer une réponse professionnelle dans un délai contraint.</p>
             </div>
           </div>
         </div>
@@ -992,7 +797,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         </div>
         <span class="comp-badge" style="background: var(--pro);">Niveau 1 — S'intégrer dans un service informatique</span>
       </div>
-
+        
       <!-- AC 13.01 -->
       <div class="ac-item">
         <div class="ac-header" onclick="toggleAC(this)">
@@ -1005,25 +810,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <!-- GitLab logo simplifié -->
-                <text x="8" y="18" fill="#fc6d26" font-size="10" font-family="monospace" font-weight="bold">GitLab</text>
-                <text x="8" y="34" fill="#6272a4" font-size="7.5" font-family="monospace">gitlab.univ-artois.fr</text>
-                <!-- dépôt -->
-                <rect x="8" y="42" width="200" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="1"/>
-                <text x="14" y="56" fill="#58a6ff" font-size="8" font-family="monospace">📁 nassim_elbouziani / SAE-1.05</text>
-                <!-- commits -->
-                <text x="8" y="76" fill="#3fb950" font-size="7.5" font-family="monospace">● feat: script récupération CSV</text>
-                <text x="8" y="88" fill="#3fb950" font-size="7.5" font-family="monospace">● fix: nettoyage lignes vides</text>
-                <text x="8" y="100" fill="#3fb950" font-size="7.5" font-family="monospace">● feat: conversion JSON + graphique</text>
-                <text x="8" y="112" fill="#6272a4" font-size="7.5" font-family="monospace">VS Code  ·  Terminal  ·  Python 3.12</text>
-              </svg>
+              <img src="assets/img/script15.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">SAE 1.05 — GitLab / VS Code / Terminal</span>
-              <p>Dans le cadre de la SAE 1.05, j'ai utilisé l'environnement de développement complet : VS Code pour l'édition du code Python, le terminal Linux pour exécuter les scripts et gérer les fichiers, et GitLab (hébergé à l'Université d'Artois) pour versionner le projet en collaboration avec mon binôme.</p>
-              <p>La maîtrise de ces outils (gestion de dépôt, commits, navigation dans l'arborescence, exécution de scripts) est fondamentale pour tout professionnel R&T amené à développer ou maintenir des outils logiciels en environnement réel.</p>
+              <p>Dans le cadre de la SAE 1.05 (expliquée plus bas), j'ai utilisé l'environnement de développement complet : VS Code pour l'édition du code Python, le terminal Linux pour exécuter les scripts, et GitLab (hébergé à l'Université d'Artois) pour archiver l'évolution du projet en collaboration avec mon binôme.</p>
+              <p>Ce projet m'a appris à me familiariser avec plusieurs outils (gestion de dépôt, commits, navigation dans l'arborescence, exécution de scripts) qui sont essentiels à tout professionnel R&T quand il est amené à développer ou maintenir des solutions informatiques pour l'entreprise ou des scripts d'automatisation.</p>
             </div>
           </div>
         </div>
@@ -1041,25 +833,13 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#1e1e2e" rx="6"/>
-                <text x="8" y="14" fill="#6272a4" font-size="8" font-family="monospace">SAE 1.05 — nettoyage CSV</text>
-                <text x="8" y="28" fill="#ff79c6" font-size="9" font-family="monospace">import</text>
-                <text x="50" y="28" fill="#f8f8f2" font-size="9" font-family="monospace"> csv, requests</text>
-                <text x="8" y="42" fill="#ff79c6" font-size="9" font-family="monospace">from</text>
-                <text x="34" y="42" fill="#f8f8f2" font-size="9" font-family="monospace"> collections </text>
-                <text x="107" y="42" fill="#ff79c6" font-size="9" font-family="monospace">import</text>
-                <text x="8" y="56" fill="#f8f8f2" font-size="9" font-family="monospace">  defaultdict</text>
-                <text x="8" y="72" fill="#6272a4" font-size="8" font-family="monospace"># Nettoyage lignes vides</text>
-                <text x="8" y="86" fill="#f8f8f2" font-size="9" font-family="monospace">reader = csv.DictReader(f)</text>
-                <text x="8" y="100" fill="#50fa7b" font-size="9" font-family="monospace">for row in reader:</text>
-                <text x="8" y="114" fill="#f8f8f2" font-size="9" font-family="monospace">  if row['Annee'].strip():</text>
-              </svg>
+              <img src="assets/img/scriptpsl.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">SAE 1.05 — Script Python de traitement</span>
-              <p>Dans la SAE 1.05, j'ai lu, analysé et corrigé un script Python de traitement de données CSV issues de data.gouv.fr. J'ai identifié et résolu des bugs liés aux lignes vides et aux caractères parasites, en utilisant <code>csv.DictReader</code> pour une lecture structurée robuste.</p>
-              <p>Ce travail m'a permis de comprendre la logique d'un programme existant, de le modifier pour le corriger (débogage), et de l'améliorer : ajout du nettoyage préalable des données, gestion des cas particuliers, et optimisation de la structure du code avant la phase de conversion JSON.</p>
+              <span class="ac-tag">R2.02 — Script d'automatisation en PowerShell</span>
+              <p>Dans le module R202, j'ai découvert la programmation dans le langage PowerShell en automatisant la création d’un utilisateur Active Directory.</p>
+              <p>Il génère un identifiant de connexion, crée le compte avec ses informations, l’ajoute à un groupe, puis crée et partage automatiquement un dossier personnel avec les droits d’accès appropriés.</p>
+              <p>L'objectif de ce programme est donc d’automatiser rapidement l’intégration d’un nouvel employé ou élève dans le système informatique de l’entreprise ou de l'établissement.</p>
             </div>
           </div>
         </div>
@@ -1077,34 +857,13 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#1e1e2e" rx="6"/>
-                <text x="8" y="14" fill="#6272a4" font-size="8" font-family="monospace">Algorithme → Python</text>
-                <!-- algo côté gauche -->
-                <rect x="8" y="20" width="85" height="55" fill="#12121e" rx="3" stroke="#444" stroke-width="1"/>
-                <text x="14" y="34" fill="#aaa" font-size="7.5" font-family="monospace">POUR chaque seg</text>
-                <text x="14" y="46" fill="#aaa" font-size="7.5" font-family="monospace">  somme ← 0</text>
-                <text x="14" y="58" fill="#aaa" font-size="7.5" font-family="monospace">  n ← 0</text>
-                <text x="14" y="70" fill="#aaa" font-size="7.5" font-family="monospace">  moy ← somme/n</text>
-                <!-- flèche -->
-                <text x="100" y="52" fill="#50fa7b" font-size="18">→</text>
-                <!-- python côté droit -->
-                <rect x="120" y="20" width="90" height="55" fill="#12121e" rx="3" stroke="#444" stroke-width="1"/>
-                <text x="126" y="34" fill="#ff79c6" font-size="7.5" font-family="monospace">for</text>
-                <text x="144" y="34" fill="#f8f8f2" font-size="7.5" font-family="monospace"> seg in data:</text>
-                <text x="126" y="46" fill="#f8f8f2" font-size="7.5" font-family="monospace">  total=0; n=0</text>
-                <text x="126" y="58" fill="#f8f8f2" font-size="7.5" font-family="monospace">  total+=float(</text>
-                <text x="126" y="70" fill="#50fa7b" font-size="7.5" font-family="monospace">  moy=total/n</text>
-                <!-- résultat -->
-                <text x="8" y="92" fill="#aaa" font-size="7.5" font-family="monospace">Résultat agrégé CSV :</text>
-                <text x="8" y="104" fill="#50fa7b" font-size="7.5" font-family="monospace">Résidentiels;149.63 TWh</text>
-                <text x="8" y="116" fill="#50fa7b" font-size="7.5" font-family="monospace">Entreprises;112.76 TWh</text>
-              </svg>
+              <img src="assets/img/code15.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">SAE 1.05 — Traitement de données électricité</span>
-              <p>Dans la SAE 1.05, j'ai traduit en Python un algorithme de calcul de consommation moyenne par segment énergétique (résidentiel, industriel, PME…). Le programme télécharge automatiquement le fichier CSV depuis data.gouv.fr, agrège les données par segment via <code>defaultdict</code>, calcule les moyennes et génère un nouveau CSV structuré.</p>
-              <p>Ce nouveau fichier est ensuite converti en JSON et envoyé à l'API QuickChart pour générer un graphique en barres ouvert dans le navigateur. La traduction de l'algorithme métier en code Python fonctionnel et lisible constituait le cœur de ma contribution au projet.</p>
+              <span class="ac-tag">SAE 1.05 — Traitement de données</span>
+              <p>Dans la SAE 1.05, j'ai traduit en Python un algorithme de calcul de consommation moyenne par segment énergétique (résidentiel, industriel, PME…). Le programme télécharge automatiquement le fichier CSV depuis data.gouv.fr, agrège les données par segment, calcule les moyennes et génère un nouveau CSV structuré.</p>
+              <p>Ce nouveau fichier est ensuite converti en JSON et envoyé à l'API QuickChart pour générer un graphique en barres ouvert dans le navigateur.</p>
+              <p>Cette SAE fut une opportunité de découvrir de nouvelles structures de données et d'apprendre comment automatiser leur collecte afin de les présenter de manière structurée à l'entreprise.</p>
             </div>
           </div>
         </div>
@@ -1122,28 +881,15 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <text x="8" y="14" fill="#aaa" font-size="7" font-family="monospace">Portfolio — index.html</text>
-                <!-- structure HTML schématique -->
-                <text x="8" y="28" fill="#f97583" font-size="8.5" font-family="monospace">&lt;nav&gt;</text>
-                <text x="8" y="40" fill="#aaa" font-size="7.5" font-family="monospace">  Bootstrap 5 · navbar-dark</text>
-                <text x="8" y="54" fill="#f97583" font-size="8.5" font-family="monospace">&lt;section id="Accueil"&gt;</text>
-                <text x="8" y="66" fill="#aaa" font-size="7.5" font-family="monospace">  Masthead · CSS animations</text>
-                <text x="8" y="80" fill="#f97583" font-size="8.5" font-family="monospace">&lt;section id="portfolio"&gt;</text>
-                <text x="8" y="92" fill="#aaa" font-size="7.5" font-family="monospace">  Grille Bootstrap · AC accordion</text>
-                <text x="8" y="106" fill="#79b8ff" font-size="7.5" font-family="monospace">HTML5 · CSS3 · JS · Bootstrap 5</text>
-              </svg>
+              <img src="assets/img/site.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">Ce portfolio — HTML5 / CSS3 / Bootstrap 5</span>
-              <p>Ce site portfolio est lui-même la démonstration de cet apprentissage. Il a été intégralement développé en HTML5 sémantique, CSS3 (variables, flexbox, animations) et JavaScript vanilla, avec le framework Bootstrap 5 pour la grille responsive et la navigation.</p>
-              <p>J'ai compris et mis en œuvre l'architecture d'un site web statique : structure DOM, sélecteurs CSS, événements JavaScript pour les accordéons, liens d'ancrage pour la navigation, et intégration de polices Google Fonts et d'icônes Font Awesome. Ce projet m'a aussi sensibilisé aux bonnes pratiques : séparation HTML/CSS, code maintenable et lisible.</p>
+              <span class="ac-tag">Ce portfolio — HTML5 / CSS3 / Bootstrap</span>
+              <p>Ce site portfolio est lui-même la démonstration de cet apprentissage. Il a été conçu à partir du framework Bootstrap et je l'ai ensuite personnalisé grâce aux bases que j'ai acquises en HTML et CSS.</p>
             </div>
           </div>
         </div>
       </div>
-
       <!-- AC 13.05 -->
       <div class="ac-item">
         <div class="ac-header" onclick="toggleAC(this)">
@@ -1156,41 +902,12 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#1e1e2e" rx="6"/>
-                <text x="8" y="14" fill="#6272a4" font-size="8" font-family="monospace">CSV → JSON → QuickChart</text>
-                <!-- CSV -->
-                <rect x="8" y="22" width="55" height="38" fill="#12121e" rx="3" stroke="#ffb86c" stroke-width="1.5"/>
-                <text x="11" y="34" fill="#ffb86c" font-size="7" font-family="monospace">CSV</text>
-                <text x="11" y="46" fill="#aaa" font-size="6.5" font-family="monospace">Seg;Conso</text>
-                <text x="11" y="56" fill="#aaa" font-size="6.5" font-family="monospace">Rés;149.63</text>
-                <!-- flèche 1 -->
-                <text x="67" y="44" fill="#50fa7b" font-size="14">→</text>
-                <!-- JSON -->
-                <rect x="84" y="22" width="55" height="38" fill="#12121e" rx="3" stroke="#50fa7b" stroke-width="1.5"/>
-                <text x="87" y="34" fill="#50fa7b" font-size="7" font-family="monospace">JSON</text>
-                <text x="87" y="46" fill="#aaa" font-size="6.5" font-family="monospace">{"labels":</text>
-                <text x="87" y="56" fill="#aaa" font-size="6.5" font-family="monospace">["Rés"...]}</text>
-                <!-- flèche 2 -->
-                <text x="143" y="44" fill="#50fa7b" font-size="14">→</text>
-                <!-- Chart -->
-                <rect x="160" y="22" width="52" height="38" fill="#12121e" rx="3" stroke="#8be9fd" stroke-width="1.5"/>
-                <text x="163" y="34" fill="#8be9fd" font-size="7" font-family="monospace">Chart</text>
-                <rect x="163" y="40" width="6" height="14" fill="#8be9fd"/>
-                <rect x="172" y="46" width="6" height="8" fill="#8be9fd"/>
-                <rect x="181" y="43" width="6" height="11" fill="#8be9fd"/>
-                <rect x="190" y="37" width="6" height="17" fill="#8be9fd"/>
-                <!-- outils -->
-                <text x="8" y="78" fill="#aaa" font-size="7.5" font-family="monospace">csv.DictReader</text>
-                <text x="8" y="90" fill="#aaa" font-size="7.5" font-family="monospace">defaultdict(list)</text>
-                <text x="8" y="102" fill="#aaa" font-size="7.5" font-family="monospace">json.dumps()</text>
-                <text x="8" y="114" fill="#ffb86c" font-size="7.5" font-family="monospace">API QuickChart → navigateur</text>
-              </svg>
+              <img src="assets/img/psql.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
-              <span class="ac-tag">SAE 1.05 — Pipeline CSV → JSON → graphique</span>
-              <p>Dans la SAE 1.05, j'ai choisi et mis en œuvre les mécanismes de gestion de données les plus adaptés à chaque étape du traitement : <code>csv.DictReader</code> pour une lecture structurée du CSV, <code>defaultdict</code> pour l'agrégation par segment, <code>json.dumps()</code> pour la sérialisation, et la bibliothèque <code>requests</code> pour l'envoi à l'API QuickChart.</p>
-              <p>Ces choix techniques ont été argumentés dans le rapport de projet : pourquoi le format CSV est adapté pour des données tabulaires brutes, pourquoi JSON est le format pivot vers les APIs web, et pourquoi <code>defaultdict</code> est plus efficace qu'un dictionnaire classique pour l'agrégation.</p>
+              <span class="ac-tag">R2.07 — Source de données (PostgreSQL)</span>
+              <p>Dans le module R2.07, j'ai découvert les bases de PostgreSQL : créer des tables, définir des clés primaires et étrangères, et écrire des requêtes pour interroger et joindre des données. </p>
+              <p>J'ai compris l'intérêt d'utiliser des SGBD plutôt que des simples tableurs : adaptation à de très grandes quantités de données, garantie de l'intégrité du contenu et gestion de l'ordre des modifications.</p>
             </div>
           </div>
         </div>
@@ -1208,29 +925,13 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
         <div class="ac-body">
           <div class="ac-inner">
             <div class="ac-illus">
-              <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                <rect width="220" height="120" fill="#0d1117" rx="6"/>
-                <text x="8" y="14" fill="#fc6d26" font-size="8" font-family="monospace">GitLab — SAE 1.05</text>
-                <!-- Gantt simplifié -->
-                <text x="8" y="28" fill="#aaa" font-size="7.5" font-family="monospace">Diagramme de Gantt</text>
-                <!-- tâches -->
-                <text x="8" y="42" fill="#6272a4" font-size="7" font-family="monospace">Nassim</text>
-                <rect x="55" y="34" width="60" height="8" fill="#50fa7b" rx="2"/>
-                <text x="57" y="41" fill="#0d1117" font-size="6" font-family="monospace">CSV + nettoyage</text>
-                <text x="8" y="58" fill="#6272a4" font-size="7" font-family="monospace">Ayman</text>
-                <rect x="55" y="50" width="80" height="8" fill="#ff79c6" rx="2"/>
-                <text x="57" y="57" fill="#0d1117" font-size="6" font-family="monospace">GitLab + JSON + graphique</text>
-                <!-- commits -->
-                <text x="8" y="74" fill="#aaa" font-size="7.5" font-family="monospace">Historique commits :</text>
-                <text x="8" y="86" fill="#3fb950" font-size="7" font-family="monospace">● init: création dépôt (Ayman)</text>
-                <text x="8" y="98" fill="#3fb950" font-size="7" font-family="monospace">● feat: script CSV (Nassim)</text>
-                <text x="8" y="110" fill="#3fb950" font-size="7" font-family="monospace">● feat: conversion JSON (Ayman)</text>
-              </svg>
+              <img src="assets/img/gitlab.png" alt="..." style="width:100%; height:100%; object-fit:contain; display:block;"/>
             </div>
             <div class="ac-text">
               <span class="ac-tag">SAE 1.05 — Travail en binôme avec GitLab</span>
-              <p>La SAE 1.05 a été réalisée en binôme avec Ayman Ettarni. Nous avons utilisé GitLab comme outil collaboratif central : création du dépôt, répartition des tâches documentée dans un diagramme de Gantt, commits réguliers et revue croisée du code.</p>
-              <p>Ma contribution portait sur la récupération et le nettoyage du CSV, tandis qu'Ayman gérait la conversion JSON et la génération du graphique. Cette organisation m'a appris à travailler dans un environnement de développement collaboratif réel, à communiquer sur l'avancement et à intégrer le travail de l'autre dans un code cohérent.</p>
+              <p>La SAE 1.05 a été réalisée en binôme. Nous avons utilisé GitLab comme outil collaboratif central : création du dépôt, répartition des tâches documentée dans un diagramme de Gantt, commits réguliers et revue croisée du code.</p>
+              <p>Ma contribution portait sur la récupération et le nettoyage du CSV, tandis que mon camarade gérait la conversion JSON et la génération du graphique.</p>
+              <p>Cette organisation m'a appris à travailler dans un environnement de développement collaboratif, à communiquer sur l'avancement et à intégrer le travail de l'autre dans un code cohérent.</p>
             </div>
           </div>
         </div>
@@ -1252,7 +953,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <p class="comp-label">Compétence RT4</p>
           <p class="comp-name" style="color: var(--sec);">Sécuriser l'infrastructure et les services numériques</p>
         </div>
-        <span class="comp-badge" style="background: var(--sec);">Semestre 2 — À venir</span>
+        <span class="comp-badge" style="background: var(--sec);">Deuxième année — À venir</span>
       </div>
 
       <div class="ac-item">
@@ -1264,7 +965,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
-          <div class="ac-coming">Contenu en cours de construction — Semestre 2</div>
+          <div class="ac-coming">Deuxième année — À venir</div>
         </div>
       </div>
       <div class="ac-item">
@@ -1276,7 +977,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
-          <div class="ac-coming">Contenu en cours de construction — Semestre 2</div>
+          <div class="ac-coming">Troisième année — À venir</div>
         </div>
       </div>
     </div><!-- /SÉCURISER -->
@@ -1296,7 +997,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <p class="comp-label">Compétence RT5</p>
           <p class="comp-name" style="color: var(--sur);">Surveiller et analyser le système d'information</p>
         </div>
-        <span class="comp-badge" style="background: var(--sur);">Semestre 2 — À venir</span>
+        <span class="comp-badge" style="background: var(--sur);">Deuxième année — À venir</span>
       </div>
 
       <div class="ac-item">
@@ -1308,7 +1009,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
-          <div class="ac-coming">Contenu en cours de construction — Semestre 2</div>
+          <div class="ac-coming">Deuxième année — À venir</div>
         </div>
       </div>
       <div class="ac-item">
@@ -1320,7 +1021,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
-          <div class="ac-coming">Contenu en cours de construction — Semestre 2</div>
+          <div class="ac-coming">Troisième année — À venir</div>
         </div>
       </div>
       <div class="ac-item">
@@ -1332,7 +1033,7 @@ Switching, Routage dynamique, VoIP, SSH, Wireshark.</p>
           <span class="ac-arrow">▶</span>
         </div>
         <div class="ac-body">
-          <div class="ac-coming">Contenu en cours de construction — Semestre 2</div>
+          <div class="ac-coming">Troisième année — À venir</div>
         </div>
       </div>
     </div><!-- /SURVEILLER -->
